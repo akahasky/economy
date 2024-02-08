@@ -40,8 +40,7 @@ public class ConnectionListener implements Listener {
         Player player = event.getPlayer();
         BigDecimal money = economyCache.get(player.getName());
 
-        if (money == null
-                || money.equals(BigDecimal.ZERO)) return;
+        if (money == null) return;
 
         repository.insertOne(player.getName(), money);
         economyCache.invalidate(player.getName());
